@@ -15,3 +15,5 @@ CREATE TABLE answer(
   question_id BIGINT UNSIGNED NOT NULL,
   content TEXT NOT NULL
 );
+
+SELECT * FROM qustion;

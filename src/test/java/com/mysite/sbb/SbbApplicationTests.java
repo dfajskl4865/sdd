@@ -17,10 +17,16 @@ class SbbApplicationTests {
 	private QuestionRepository questionRepository;
 
 	@Test
+	void testFindBySubject() {
+		Question q = questionRepository.findBySubject("sbb가 무엇인가요?");
+		assertEquals(q.getId(), 1);
+	}
+
+	@Test
 	void testFindById(){
 		Optional<Question> oq = questionRepository.findById(1);
 
-		if ( oq.isPresent() ) {
+		if (oq.isPresent()) {
 			Question q = oq.get();
 			assertEquals("sbb가 무엇인가요", q.getSubject());
 		}
@@ -44,8 +50,8 @@ class SbbApplicationTests {
 		questionRepository.save(q1);
 
 		Question q2 = new Question();
-		q2.setSubject("sbb가 무엇인가요?");
-		q2.setContent("sbb에 대해서 알고 싶습니다.");
+		q2.setSubject("스프링부트 모델 질문입니다.");
+		q2.setContent("id는 자동으로 생성되나요?");
 		q2.setCreateDate(LocalDateTime.now());
 		questionRepository.save(q2);
 	}
