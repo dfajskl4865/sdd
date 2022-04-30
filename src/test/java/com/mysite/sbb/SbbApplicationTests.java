@@ -30,13 +30,12 @@ class SbbApplicationTests {
 
 	@Test
 	void testMakeQuestionMany(){
-		for(int i = 1; i<=300; i++){
+		for(int i = 1; i <= 300; i++){
 			String subject="테스트 데이터입니다. : [%03d]".formatted(i);
 			String content="내용무 : %d".formatted((int) (Math.random() * 100));
 			questionService.create(subject, content);
 		}
 	}
-
 
 	@Test
 	@Transactional
